@@ -428,7 +428,8 @@
             var renderCallback = option('callbacks', 'onRender');
 
             if (currentItem === i) {
-              currentItemTime = timeAgo(get(item, 'time'));
+              currentItemTime = get(item, 'time');
+              // currentItemTime = timeAgo(get(item, 'time'));
             }
 
             pointerItems += "\n                            <span ".concat(commonAttrs, " class=\"").concat(currentItem === i ? 'active' : '', " ").concat(seenClass, "\">\n                                <b style=\"animation-duration:").concat(length === '' ? '3' : length, "s\"></b>\n                            </span>");
