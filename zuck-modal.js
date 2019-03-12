@@ -1139,6 +1139,18 @@
 		  },
 		  close: () => {
 			modal.close();
+		  },
+		  removeStories: () => {
+			zuck.storyIds = [];
+			zuck.data = {};
+		  },
+		  addStory: (story) => {
+			zuck.add(story);
+		  },
+		  addStories: (stories) => {
+			each(stories, (i, item) => {
+				zuck.add(item);
+			});
 		  }
 		};
 	  };
