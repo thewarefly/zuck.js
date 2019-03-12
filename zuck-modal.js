@@ -907,12 +907,8 @@
   
 				fullScreen(modalContainer, true);
   
-				if (option('openEffect')) {
-				  modalContainer.classList.add('closed');
-				} else {
-				  modalContent.innerHTML = '';
-				  modalContainer.style.display = 'none';
-				}
+				modalContent.innerHTML = '';
+				modalContainer.style.display = 'none';
 			  };
   
 			  option('callbacks', 'onClose')(
