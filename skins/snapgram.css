@@ -56,16 +56,9 @@
 }
 
 #zuck-modal-content .story-viewer .head {
-    display: flex;
-}
-
-#zuck-modal-content .story-viewer .head .left > div > strong {
-	font-weight: 600;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	padding-left: 5px;
-	margin-left: -5px;
+	display: flex;
+	top: 35px;
+	margin-left: 8px;
 }
 
 #zuck-modal-content .story-viewer .head .left {
@@ -110,14 +103,14 @@
 #zuck-modal-content .story-viewer .head .right {
 	position: absolute;
     right: 15px;
-    top: -15px;
+    top: -20px;
 }
 
 #zuck-modal-content .story-viewer .head .right .time {
 	display: none;
 }
 
-#zuck-modal-content .story-viewer .head .left .time, #zuck-modal-content .story-viewer .head .right .close {
+#zuck-modal-content .story-viewer .head .right .close {
 	display: block;
 	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/sprite-stories.png);
 	background-repeat: no-repeat;
