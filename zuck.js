@@ -819,11 +819,11 @@
 				if (lastStoryTimelineElement) {
 				  lastStoryTimelineElement.classList.add('seen');
   
+				  zuck.data[lastStory]['currentItem'] = 0;
 				  zuck.data[lastStory]['seen'] = true;
 				  zuck.internalData['seenItems'][lastStory] = true;
   
 				  saveLocalData('seenItems', zuck.internalData['seenItems']);
-				  updateStoryseenPosition();
 				}
   
 				const stories = query('#zuck-modal .story-viewer.next');
@@ -909,6 +909,7 @@
 		  try {
 			zuck.data[storyId] = {
 			  id: storyId, // story id
+			  kind: story.getAttribute('data-kind'),
 			  photo: story.getAttribute('data-photo'), // story photo (or user photo)
 			  name: story.firstElementChild.lastElementChild.firstChild.innerText,
 			  link: story.firstElementChild.getAttribute('href'),
@@ -1079,6 +1080,7 @@
 		  }
   
 		  story.setAttribute('data-id', storyId);
+		  story.setAttribute('data-kind', get(data, 'kind'));
 		  story.setAttribute('data-photo', get(data, 'photo'));
 		  story.setAttribute('data-last-updated', get(data, 'lastUpdated'));
   
@@ -1100,6 +1102,10 @@
 			} else {
 			  prepend(timeline, story);
 			}
+		  }
+
+		  if (get(data, 'kind') === 'ad') {
+			  story.style.display = 'none';
 		  }
   
 		  each(items, (i, item) => {
