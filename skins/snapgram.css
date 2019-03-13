@@ -1,7 +1,56 @@
-.stories.snapgram .story > a {text-decoration:none;color:#333}
-.stories.snapgram .story > a > .img {border-radius:50%;padding:2px;background:radial-gradient(ellipse at 70% 70%,#ee583f 8%,#d92d77 42%,#bd3381 58%);}
-.stories.snapgram .story > a > .img > * {border-radius: 50%; border:3px solid #fff;}
+.stories.carousel .story {
+	width: 80px;
+	margin: unset;
+	padding: 0 4px;
+}
 
-.stories.snapgram .story.seen{opacity:.75}
-.stories.snapgram .story.seen > a > .img {background:#999}
-.stories.snapgram .story.seen > a{color:#999!important}
+.stories.snapgram .story>a {
+	width: 63px;
+	margin: 0 auto;
+	text-decoration: none;
+	color: #333
+}
+
+.stories.snapgram .story>a>.img {
+	height: unset;
+	border-radius: 50%;
+	padding: 2px;
+	background: radial-gradient(ellipse at 70% 70%, #ee583f 8%, #d92d77 42%, #bd3381 58%);
+}
+
+.stories.snapgram .story>a>.img>* {
+	width: 59px;
+	height: 59px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+}
+
+.stories.snapgram .story.seen {
+	opacity: .75
+}
+
+.stories.snapgram .story.seen>a>.img {
+	background: #999
+}
+
+.stories.snapgram .story.seen>a {
+	color: #999!important
+}
+
+.stories.carousel .story > a > .info {
+	margin-top: 3px;
+	overflow: unset;
+	text-overflow: unset;
+}
+
+.stories.carousel .story > a > .info strong {
+	color: #262626;
+	display: block;
+	font-size: 12px;
+	line-height: 14px;
+	max-width: 64px;
+	overflow: hidden;
+	text-align: center;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
