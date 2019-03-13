@@ -1166,9 +1166,6 @@
 		};
 	  };
   
-	  /* Too much zuck zuck to maintain legacy */
-	  w['ZuckitaDaGalera'] = w['Zuck'] = ZuckModalJS;
-  
 	  return ZuckModalJS;
 	})();
   
