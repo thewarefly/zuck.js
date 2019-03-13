@@ -838,6 +838,11 @@
   
 				  saveLocalData('seenItems', zuck.internalData['seenItems']);
 				}
+
+				const nextItemData = getStoryRelativeCurrent('next');
+				if (nextItemData) {
+				  createStoryViewer(nextItemData, 'next');
+				}
   
 				const stories = query('#zuck-modal .story-viewer.next');
 				if (!stories) {
