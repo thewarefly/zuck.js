@@ -175,51 +175,6 @@
   
 		  return [curleft, curtop];
 		};
-  
-		const timeAgo = function (time) {
-		  time = Number(time) * 1000;
-  
-		  const dateObj = new Date(time);
-		  const dateStr = dateObj.getTime();
-		  let seconds = (new Date().getTime() - dateStr) / 1000;
-  
-		  const language = option('language', 'time');
-  
-		  const formats = [
-			[60, ` ${language['seconds']}`, 1], // 60
-			[120, `1 ${language['minute']}`, ''], // 60*2
-			[3600, ` ${language['minutes']}`, 60], // 60*60, 60
-			[7200, `1 ${language['hour']}`, ''], // 60*60*2
-			[86400, ` ${language['hours']}`, 3600], // 60*60*24, 60*60
-			[172800, ` ${language['yesterday']}`, ''], // 60*60*24*2
-			[604800, ` ${language['days']}`, 86400]
-		  ];
-  
-		  let currentFormat = 1;
-		  if (seconds < 0) {
-			seconds = Math.abs(seconds);
-  
-			currentFormat = 2;
-		  }
-  
-		  let i = 0;
-		  let format = void 0;
-		  while ((format = formats[i++])) {
-			if (seconds < format[0]) {
-			  if (typeof format[2] === 'string') {
-				return format[currentFormat];
-			  } else {
-				return Math.floor(seconds / format[2]) + format[1];
-			  }
-			}
-		  }
-  
-		  const day = dateObj.getDate();
-		  const month = dateObj.getMonth();
-		  const year = dateObj.getFullYear();
-  
-		  return `${day}/${month + 1}/${year}`;
-		};
 
 		let getStoryRelativeCurrent = function (what) {
 			// my wife told me to stop singing Wonderwall. I SAID MAYBE.
@@ -506,7 +461,7 @@
 			  const renderCallback = option('callbacks', 'onRender');
   
 			  if (currentItem === i) {
-				currentItemTime = timeAgo(get(item, 'time'));
+				currentItemTime = get(item, 'time');
 			  }
   
 			  pointerItems += `
@@ -578,7 +533,7 @@
 			storyViewer.setAttribute('data-story-id', storyId);
   
 			const html =
-				`<div class="head"><div class="left">${option('backButton') ? '<a class="back">&lsaquo;</a>' : ''}<u class="img" style="background-image:url(${get(storyData, 'photo')});"></u><div><strong>${get(storyData, 'name')}</strong><span class="time">${currentItemTime}</span></div></div><div class="right"><span class="time">${currentItemTime}</span><span class="loading"></span><a class="close" tabIndex="2">&times;</a></div></div><div class="slides-pointers"><div>${pointerItems}</div></div>`;
+				`<div class="head"><div class="left">${option('backButton') ? '<a class="back">&lsaquo;</a>' : ''}<u class="img" style="background-image:url(${get(storyData, 'photo')});"></u><div><strong>${get(storyData, 'name')}</strong><span class="time">${currentItemTime}</span></div></div><div class="right"><span class="time">${currentItemTime}</span><span class="loading"></span><a class="close" tabIndex="2"></a></div></div><div class="slides-pointers"><div>${pointerItems}</div></div>`;
 			storyViewer.innerHTML = html;
   
 			each(storyViewer.querySelectorAll('.close, .back'), (i, el) => {
@@ -1024,6 +979,9 @@
 		  zuck.storyIds.push(storyId);
 		  zuck.data[storyId] = {
 			id: storyId,
+			kind: get(data, 'kind'),
+			name: get(data, 'name'),
+			photo: get(data, 'photo'),
 			items: [],
 		  };
   
@@ -1090,7 +1048,7 @@
 					nextItem.classList.add('active');
 
 					each(storyViewer.querySelectorAll('.time'), (i, el) => {
-						el.innerText = timeAgo(nextItem.getAttribute('data-time'));
+						el.innerText = nextItem.getAttribute('data-time');
 					});
 
 					zuck.data[currentStory]['currentItem'] =
