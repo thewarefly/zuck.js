@@ -822,7 +822,7 @@
   
 				  tryFullScreen();
 				}
-  
+
 				option('callbacks', 'onView')(storyId);
 			  };
   
@@ -830,15 +830,6 @@
 			},
 			next: function next () {
 			  const callback = function () {
-				const lastStory = zuck.internalData['currentStory'];
-  
-				if (lastStory) {
-				  zuck.data[lastStory]['seen'] = true;
-				  zuck.internalData['seenItems'][lastStory] = true;
-  
-				  saveLocalData('seenItems', zuck.internalData['seenItems']);
-				}
-
 				const nextItemData = getStoryRelativeCurrent('next');
 				if (nextItemData) {
 				  createStoryViewer(nextItemData, 'next');
@@ -851,7 +842,16 @@
 				  moveStoryItem(true);
 				}
 			  };
-  
+
+			  const lastStory = zuck.internalData['currentStory'];
+
+			  if (lastStory) {
+				zuck.data[lastStory]['seen'] = true;
+				zuck.internalData['seenItems'][lastStory] = true;
+
+				saveLocalData('seenItems', zuck.internalData['seenItems']);
+			  }
+
 			  option('callbacks', 'onEnd')(
 				zuck.internalData['currentStory'],
 				callback
