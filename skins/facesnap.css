@@ -1,6 +1,152 @@
-.stories.facesnap .story > a {text-decoration:none;color:#333}
-.stories.facesnap .story > a > .img {border-radius:50%;padding:2px;background:#3B5998;}
-.stories.facesnap .story > a > .img > * {border-radius: 50%; border:3px solid #fff;}
+.stories.facesnap .story {
+	border: 1px solid rgba(0, 0, 0, .1);
+	border-radius: 5px;
+	max-height: 128px;
+	width: 86px;
+	color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 3px;
+}
 
-.stories.facesnap .story.seen{opacity:.5}
-.stories.facesnap .story.seen > a > .img {background:#999}
+.stories.facesnap .story > a {
+	position: relative;
+	height: 128px;
+    text-decoration: none;
+    color: #333;
+}
+
+.stories.facesnap .story > a > .img {
+	overflow: hidden;
+	max-height: unset;
+	height: 100%;
+}
+
+.stories.facesnap .story > a > .img > img {
+	height: 128px;
+    width: 86px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+    position: relative;
+    vertical-align: middle;
+}
+
+.stories.facesnap .story > a > .info {
+	background: linear-gradient( rgba(0, 0, 0, .0), rgba(0, 0, 0, 1.0) );
+	border-radius: 5px;
+	bottom: 0;
+	height: 50%;
+	left: 0;
+	position: absolute;
+	width: 100%;
+}
+
+.stories.facesnap .story > a > .info strong {
+    line-height: 14px;
+    max-height: 100%;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px rgba(0, 0, 0, .2);
+    white-space: nowrap;
+    z-index: 1;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    bottom: 0;
+    margin-bottom: 8px;
+    margin-left: 8px;
+    position: absolute;
+    width: calc(100% - 12px);
+    left: 0;
+}
+
+#zuck-modal-content .story-viewer .slides-pointers {
+	width: calc(100vw - 10px);
+	top: 5px;
+    left: 5px;
+    right: 0;
+}
+
+#zuck-modal-content .story-viewer .head {
+	display: flex;
+	top: 15px;
+	padding: 0 11px;
+}
+
+#zuck-modal-content .story-viewer .head .left {
+	display: flex;
+    flex: 0 1;
+    flex-direction: row;
+	align-items: center;
+
+	font-size: 14px;
+	margin: unset;
+}
+
+#zuck-modal-content .story-viewer .head .img {
+	width: 40px;
+    height: 40px;
+	margin-right: 8px;
+}
+
+#zuck-modal-content .story-viewer .head .left > div {
+	display: flex;
+    flex-direction: column;
+
+	max-width: unset;
+	vertical-align: unset;
+}
+
+#zuck-modal-content .story-viewer .head .left > div > strong {
+	margin-bottom: 3px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	padding-right: 10px;	
+	color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 16px;
+}
+
+#zuck-modal-content .story-viewer .head .left .time {
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 14px;
+}
+
+#zuck-modal-content .story-viewer .head .right {
+	position: absolute;
+    right: 10px;
+	top: -5px;
+	
+	display: flex;
+	align-items: center;
+}
+
+#zuck-modal-content .story-viewer .head .right .time {
+	margin-right: 12px;
+	
+    display: block;
+    background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/facebook/sprite-stories.png);
+    background-repeat: no-repeat;
+    background-size: 22px 234px;
+    height: 20px;
+    width: 20px;
+    background-position: 0 -22px;
+    color: transparent;
+}
+
+#zuck-modal-content .story-viewer .head .right .close {
+	display: block;
+	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/facebook/sprite-stories.png);
+	background-repeat: no-repeat;
+	background-size: 22px 234px;
+    background-position: 0 0;
+    height: 20px;
+    width: 20px;
+}
