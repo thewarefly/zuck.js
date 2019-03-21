@@ -130,7 +130,7 @@
 
 #zuck-modal-content .story-viewer .head .right .time {
 	margin-right: 12px;
-	
+
     display: block;
     background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/facebook/sprite-stories.png);
     background-repeat: no-repeat;
@@ -138,7 +138,8 @@
     height: 20px;
     width: 20px;
     background-position: 0 -22px;
-    color: transparent;
+	color: transparent;
+	font-size: 0;
 }
 
 #zuck-modal-content .story-viewer .head .right .close {
