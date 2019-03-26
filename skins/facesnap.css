@@ -6,7 +6,8 @@
 	color: #fff;
     font-size: 12px;
     font-weight: bold;
-    margin-right: 3px;
+	margin-right: 3px;
+	overflow: hidden;
 }
 
 .stories.facesnap .story > a {
@@ -150,4 +151,18 @@
     background-position: 0 0;
     height: 20px;
     width: 20px;
+}
+
+.ar-story-timeline.mobile .stories.facesnap .story {
+	width: 122px;
+    max-width: unset;
+	max-height: 277px;
+}
+
+.ar-story-timeline.mobile .stories.facesnap .story > a {
+	height: 165px;
+}
+
+.ar-story-timeline.mobile .stories.facesnap .story > a > .info strong {
+	text-align: center;
 }
