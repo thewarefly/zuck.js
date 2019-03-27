@@ -153,16 +153,16 @@
     width: 20px;
 }
 
-.ar-story-timeline.mobile .stories.facesnap .story {
+.ar-story-timeline.mobile.stories.facesnap .story {
 	width: 122px;
     max-width: unset;
 	max-height: 277px;
 }
 
-.ar-story-timeline.mobile .stories.facesnap .story > a {
+.ar-story-timeline.mobile.stories.facesnap .story > a {
 	height: 165px;
 }
 
-.ar-story-timeline.mobile .stories.facesnap .story > a > .info strong {
+.ar-story-timeline.mobile.stories.facesnap .story > a > .info strong {
 	text-align: center;
 }
