@@ -154,13 +154,14 @@
 }
 
 #ar-story-timeline.mobile.stories.facesnap .story {
-	width: 122px;
-    max-width: unset;
-	max-height: 277px;
+    width: 30vw;
+    height: 40vw;
+    max-height: 277px;
+    max-width: 208px;
 }
 
 #ar-story-timeline.mobile.stories.facesnap .story > a {
-	height: 165px;
+	height: 40vw;
 }
 
 #ar-story-timeline.mobile.stories.facesnap .story > a > .info strong {
