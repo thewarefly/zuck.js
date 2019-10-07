@@ -10,11 +10,11 @@
 
 	  const ZuckModalJS = function (options) {
 		const d = document;
-    const zuck = this;
+        const zuck = this;
 
 		const query = function (qs) {
 		  return d.querySelectorAll(qs)[0];
-    };
+        };
 
 		const get = function (array, what) {
 		  if (array) {
@@ -330,7 +330,7 @@
 			let target = '';
 			let useless = '';
 			let transform = '0';
-      const modalSlider = query(`#zuck-modal-slider-${id}`);
+            const modalSlider = query(`#zuck-modal-slider-${id}`);
 
 			const slideItems = {
 			  previous: query('#zuck-modal .story-viewer.previous'),
@@ -432,7 +432,7 @@
 			const modalSlider = query(`#zuck-modal-slider-${id}`);
 
 			let htmlItems = '';
-      let pointerItems = '';
+            let pointerItems = '';
 
 			const storyId = get(storyData, 'id');
 			const slides = d.createElement('div');
@@ -442,57 +442,60 @@
 			);
 
 			let currentItemTime = '';
+			let currentItemSponsorText = '';
 
 			if (exists) {
 			  return false;
-      }
+            }
 
 			slides.className = 'slides';
 			each(get(storyData, 'items'), (i, item) => {
 			  if (currentItem > i) {
 				storyData['items'][i]['seen'] = true;
 				item['seen'] = true;
-        }
+              }
 
 			  const itemId = get(item, 'id');
 			  const length = get(item, 'length');
 			  const linkText = get(item, 'linkText');
 			  const seenClass = get(item, 'seen') === true ? 'seen' : '';
 			  const commonAttrs = `data-index="${i}" data-item-id="${itemId}"`;
-        const renderCallback = option('callbacks', 'onRender');
+              const renderCallback = option('callbacks', 'onRender');
 
 			  if (currentItem === i) {
 				currentItemTime = get(item, 'time');
+				currentItemSponsorText = get(item, 'sponsorText');
 			  }
 
 			  pointerItems += `
-							  <span ${commonAttrs} class="${currentItem === i ? 'active' : ''} ${seenClass}">
-								  <b style="animation-duration:${length === '' ? '3' : length}s"></b>
+			    <span ${commonAttrs} class="${currentItem === i ? 'active' : ''} ${seenClass}">
+					<b style="animation-duration:${length === '' ? '3' : length}s"></b>
                 </span>`;
 
 			  htmlItems += `
-			  <div data-time="${get(item, 'time')}" data-type="${get(item, 'type')}"${commonAttrs} class="item ${seenClass} ${currentItem === i ? 'active' : ''}">
-				${renderCallback(item, `
-				  ${get(item, 'type') === 'video' ? `
-						<video class="media" muted webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}" ${get(item, 'type')}></video>
-						<b class="tip muted">${option('language', 'unmute')}</b>
-				  ` : `
-            <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
-				  `}
+				<div data-time="${get(item, 'time')}" data-sponsor-text="${get(item, 'sponsorText')}" data-type="${get(item, 'type')}"${commonAttrs} class="item ${seenClass} ${currentItem === i ? 'active' : ''}">
+					${renderCallback(item, `
+						${get(item, 'type') === 'video' ? `
+							<video class="media" muted webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}"
+								${get(item, 'type')}>
+							</video>
+							<b class="tip muted">${option('language', 'unmute')}</b>
+						` : `
+					        <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
+						`}
 
-				  ${get(item, 'link') ? `
-						<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
-						  ${!linkText || linkText === '' ? option('language', 'visitLink') : linkText}
-						</a>
-				  ` : `
-          `}
-
-          ${get(item, 'block') ? `
-            ${get(item, 'block')}
-          ` : `
-          `}
-        `)}
-        </div>`;
+						${get(item, 'link') ? `
+							<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
+								${!linkText || linkText === '' ? option('language', 'visitLink') : linkText}
+							</a>
+						` : `
+					    `}
+					    ${get(item, 'block') ? `
+					        ${get(item, 'block')}
+						` : `
+					    `}
+					`)}
+				</div>`;
 			});
 
       slides.innerHTML = htmlItems;
@@ -543,7 +546,26 @@
 			storyViewer.setAttribute('data-story-id', storyId);
 
 			const html =
-				`<div class="head"><div class="left">${option('backButton') ? '<a class="back">&lsaquo;</a>' : ''}<u class="img" style="background-image:url(${get(storyData, 'photo')});"></u><div><strong>${get(storyData, 'name')}</strong><span class="time">${currentItemTime}</span></div></div><div class="right"><span class="time">${currentItemTime}</span><span class="loading"></span><a class="close" tabIndex="2"></a></div></div><div class="slides-pointers"><div>${pointerItems}</div></div>`;
+				`<div class="head">
+					<div class="left">
+						${option('backButton') ? '<a class="back">&lsaquo;</a>' 
+						: ''}<u class="img" style="background-image:url(${get(storyData, 'photo')});"></u>
+						<div>
+							<strong>${get(storyData, 'name')}</strong>
+							<span class="time">${currentItemTime}</span>
+						</div>
+					</div>
+					<div class="sponsor-text">${currentItemSponsorText}</div>
+
+					<div class="right">
+						<span class="time">${currentItemTime}</span>
+						<span class="loading"></span>
+						<a class="close" tabIndex="2"></a>
+					</div>
+				</div>
+				<div class="slides-pointers">
+					<div>${pointerItems}</div>
+				</div>`;
 			storyViewer.innerHTML = html;
 
 			each(storyViewer.querySelectorAll('.close, .back'), (i, el) => {
@@ -577,7 +599,7 @@
 			  prepend(modalSlider, storyViewer);
 			} else {
 			  modalSlider.appendChild(storyViewer);
-      }
+            }
 		  };
 
 		  const createStoryTouchEvents = function (
@@ -1013,7 +1035,8 @@
             id: get(data, 'id'),
             length: get(data, 'length'),
             type: get(data, 'type'),
-            time: get(data, 'time'),
+			time: get(data, 'time'),
+			sponsorText: get(data, 'sponsorText'),
             link: get(data, 'link'),
             linkText: get(data, 'linkText'),
             preview: get(data, 'preview'),
@@ -1066,6 +1089,10 @@
 
 					each(storyViewer.querySelectorAll('.time'), (i, el) => {
 						el.innerText = nextItem.getAttribute('data-time');
+					});
+
+					each(storyViewer.querySelectorAll('.sponsor-text'), (i, el) => {
+						el.innerText = nextItem.getAttribute('data-sponsor-text');
 					});
 
 					zuck.data[currentStory]['currentItem'] =
@@ -1127,7 +1154,7 @@
 	  };
 
 		/* Helpers */
-	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, time, block) => {
+	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, sponsorText, time, block) => {
 		return {
 		  id,
 		  type,
@@ -1137,7 +1164,8 @@
 		  link,
 		  linkText,
 		  seen,
-          time,
+		  time,
+		  sponsorText,
           block
 		};
 	  };
@@ -1159,4 +1187,4 @@
 	} else {
 	  global.ZuckModalJS = ZuckModalJS;
 	}
-  })(window);
+})(window);
