@@ -479,7 +479,6 @@
 							<video class="media" muted webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}"
 								${get(item, 'type')}>
 							</video>
-							<b class="tip muted">${option('language', 'unmute')}</b>
 						` : `
 					        <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
 						`}
@@ -1131,6 +1130,14 @@
 		return {
 		  openStory: (storyId, fromElem) => {
 			modal.show(storyId, fromElem);
+		  },
+		  onVolumeUp: () => {
+			const storyViewerViewing = query('#zuck-modal .viewing');
+			const video = zuck.internalData['currentVideoElement'];
+	
+			if (storyViewerViewing.classList.contains('muted')) {
+				unmuteVideoItem(video, storyViewerViewing);
+			}
 		  },
 		  nextItem: (direction) => {
 			zuck.nextItem(direction);
