@@ -564,7 +564,11 @@
 				</div>
 				<div class="slides-pointers">
 					<div>${pointerItems}</div>
-				</div>`;
+				</div>
+				<div class="bottom-icons">
+					<div class="send"></div>
+					<div class="more"></div>
+			  	</div>`;
 			storyViewer.innerHTML = html;
 
 			each(storyViewer.querySelectorAll('.close, .back'), (i, el) => {

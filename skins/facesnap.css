@@ -167,3 +167,7 @@
 #ar-story-timeline.mobile.stories.facesnap .story > a > .info strong {
 	text-align: center;
 }
+
+#zuck-modal-content .story-viewer .bottom-icons {
+    display: none;
+}

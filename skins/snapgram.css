@@ -136,3 +136,30 @@
 	margin-left: 38px;
 	line-height: 14px;
 }
+
+#zuck-modal-content .story-viewer .bottom-icons {
+	display: flex;
+	flex-direction: row;
+	z-index: 2;
+	position: absolute;
+	bottom: 15px;
+	right: 25px;
+}
+  
+#zuck-modal-content .story-viewer .bottom-icons .send {
+	display: block;
+	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/send.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 35px;
+	width: 35px;
+}
+  
+#zuck-modal-content .story-viewer .bottom-icons .more {
+	display: block;
+	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/more.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 35px;
+	width: 35px;
+}
