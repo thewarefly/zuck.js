@@ -482,12 +482,15 @@
 						` : `
 					        <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
 						`}
-
 						${get(item, 'link') ? `
 							<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
 								${!linkText || linkText === '' ? option('language', 'visitLink') : linkText}
 							</a>
 						` : `
+							${get(item, 'showLink') ? `
+								<div class="link-button"></div>
+							` : `
+							`}
 					    `}
 					    ${get(item, 'block') ? `
 					        ${get(item, 'block')}
@@ -1040,6 +1043,7 @@
             type: get(data, 'type'),
 			time: get(data, 'time'),
 			sponsorText: get(data, 'sponsorText'),
+			showLink: get(data, 'showLink'),
             link: get(data, 'link'),
             linkText: get(data, 'linkText'),
             preview: get(data, 'preview'),
@@ -1165,13 +1169,14 @@
 	  };
 
 		/* Helpers */
-	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, sponsorText, time, block) => {
+	  ZuckModalJS.buildItem = (id, type, length, src, preview, showLink, link, linkText, seen, sponsorText, time, block) => {
 		return {
 		  id,
 		  type,
 		  length,
 		  src,
 		  preview,
+		  showLink,
 		  link,
 		  linkText,
 		  seen,

@@ -163,3 +163,20 @@
 	height: 35px;
 	width: 35px;
 }
+
+#zuck-modal-content .story-viewer .slides .item.active .link-button {
+	display: block;
+	position: absolute;
+	bottom:24px;
+	left:50%;
+	transform:translateX(-50%);
+	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/arrow.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 30px;
+	width: 30px;
+}
+
+#zuck-modal-content .story-viewer .tip {
+	background:unset;
+}
