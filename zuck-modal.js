@@ -422,7 +422,7 @@
 				option('callbacks', 'onView')(zuck.internalData['currentStory']);
 			  }
 			}, transitionTime + 50);
-		  };
+		};
 
 		  let createStoryViewer = function (
 			storyData,
@@ -553,11 +553,13 @@
 						${option('backButton') ? '<a class="back">&lsaquo;</a>' 
 						: ''}<u class="img" style="background-image:url(${get(storyData, 'photo')});"></u>
 						<div>
-							<strong>${get(storyData, 'name')}</strong>
-							<span class="time">${currentItemTime}</span>
+							<div>
+								<strong>${get(storyData, 'name')}</strong>
+								<span class="time">${currentItemTime}</span>
+							</div>
+							<div class="sponsor-text">${currentItemSponsorText}</div>
 						</div>
 					</div>
-					<div class="sponsor-text">${currentItemSponsorText}</div>
 
 					<div class="right">
 						<span class="time">${currentItemTime}</span>

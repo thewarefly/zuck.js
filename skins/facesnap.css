@@ -92,7 +92,7 @@
 	margin-right: 8px;
 }
 
-#zuck-modal-content .story-viewer .head .left > div {
+#zuck-modal-content .story-viewer .head .left > div > div:first-child {
 	display: flex;
     flex-direction: column;
 
@@ -100,7 +100,12 @@
 	vertical-align: unset;
 }
 
-#zuck-modal-content .story-viewer .head .left > div > strong {
+#zuck-modal-content .story-viewer .head .left > div > div.sponsor-text {
+	display: block;
+	line-height: 15px;
+}
+
+#zuck-modal-content .story-viewer .head .left > div > div:first-child > strong {
 	margin-bottom: 3px;
 
     text-overflow: ellipsis;

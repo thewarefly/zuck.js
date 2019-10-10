@@ -78,7 +78,7 @@
 #zuck-modal-content .story-viewer .head .left {
 	display: flex;
     flex-direction: row;
-	align-items: center;
+	align-items: flex-start;
 
 	font-size: 14px;
 	margin: unset;
@@ -88,13 +88,14 @@
 	margin-right: 8px;
 }
 
-#zuck-modal-content .story-viewer .head .left > div {
+#zuck-modal-content .story-viewer .head .left > div > div:first-child {
 	display: flex;
     flex-direction: row;
 	align-items: center;
 
 	max-width: unset;
 	vertical-align: unset;
+	line-height: 15px;
 }
 
 #zuck-modal-content .story-viewer .head .left > div > strong {
@@ -132,9 +133,9 @@
     width: 44px;
 }
 
-#zuck-modal-content .story-viewer .head .sponsor-text {
-	margin-left: 38px;
-	line-height: 14px;
+#zuck-modal-content .story-viewer .head .left > div > div.sponsor-text {
+	display: block;
+	line-height: 15px;
 }
 
 #zuck-modal-content .story-viewer .bottom-icons {
@@ -167,8 +168,8 @@
 #zuck-modal-content .story-viewer .slides .item.active .link-button {
 	display: block;
 	position: absolute;
-	bottom:24px;
-	left:50%;
+	bottom: 24px;
+	left: 50%;
 	transform:translateX(-50%);
 	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/arrow.png);
 	background-repeat: no-repeat;
@@ -178,5 +179,5 @@
 }
 
 #zuck-modal-content .story-viewer .tip {
-	background:unset;
+	background: unset;
 }
