@@ -98,11 +98,11 @@
 	line-height: 15px;
 }
 
-#zuck-modal-content .story-viewer .head .left > div > strong {
+#zuck-modal-content .story-viewer .head .left > div > div > strong {
     font-weight: 600;
     text-overflow: ellipsis;
     white-space: nowrap;
-    padding-right: 10px;	
+	padding-right: 10px;
 }
 
 #zuck-modal-content .story-viewer .head .left .time {
