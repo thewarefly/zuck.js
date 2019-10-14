@@ -71,7 +71,7 @@
 
 #zuck-modal-content .story-viewer .head {
 	display: flex;
-	top: 35px;
+	top: 18px;
 	margin-left: 8px;
 }
 
@@ -117,7 +117,7 @@
 #zuck-modal-content .story-viewer .head .right {
 	position: absolute;
     right: 15px;
-    top: -20px;
+    top: -5px;
 }
 
 #zuck-modal-content .story-viewer .head .right .time {
@@ -136,6 +136,7 @@
 #zuck-modal-content .story-viewer .head .left > div > div.sponsor-text {
 	display: block;
 	line-height: 15px;
+	color: #d8d9d1;
 }
 
 #zuck-modal-content .story-viewer .bottom-icons {
