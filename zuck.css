@@ -93,7 +93,7 @@
 #zuck-modal-content .story-viewer .slides .item > .media {height:100%;position:absolute;left:50%;-webkit-transform:translateX(-50%);transform:translateX(-50%);margin:auto;}
 #zuck-modal-content .story-viewer .slides .item.active, #zuck-modal-content .story-viewer .slides .item.active .tip.link {display:block;}
 
-#zuck-modal-content .story-viewer .tip{z-index: 5; text-decoration: none;display: none;border-radius:24px;background:rgba(0,0,0,0.5);font-size:16px;position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:1000;color:#fff;text-align:center;text-transform:uppercase;font-weight:500;padding:12px 24px;}
+#zuck-modal-content .story-viewer .tip{z-index: 5; text-decoration: none;display: none;border-radius:24px;background:rgba(0,0,0,0.5);font-size:16px;position:absolute;bottom:24px;left:50%;transform:translateX(-50%);z-index:1000;color:#fff;text-align:center;font-weight:500;padding:12px 24px;}
 #zuck-modal-content .story-viewer .slides .item.active .link-button{display: none;}
 #zuck-modal-content .story-viewer .bottom-icons {display: none;}
 
