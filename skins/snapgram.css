@@ -166,20 +166,22 @@
 	width: 35px;
 }
 
-#zuck-modal-content .story-viewer .slides .item.active .link-button {
+#zuck-modal-content .story-viewer .link-button {
 	display: block;
-	position: absolute;
-	bottom: 42px;
 	left: 50%;
-	transform:translateX(-50%);
+	transform: translateX(-50%);
 	background-image: url(https://ads-replacement.warefly.com/ads-replacement/assets/instagram/arrow.png);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 30px;
-	width: 30px;
-	z-index: 200;
+    width: 30px;
+    z-index: 200;
 }
 
 #zuck-modal-content .story-viewer .tip {
 	background: unset;
+}
+
+#zuck-modal-content .story-viewer .link-text {
+	margin-top: 5px;
 }

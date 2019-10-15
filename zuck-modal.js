@@ -482,22 +482,25 @@
 						` : `
 					        <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
 						`}
-						${linkText || linkText !== '' ?`
-							<div class="link-button" onclick="stopPropagation(event);" ontouchstart="stopPropagation(event);"></div>
-						  	${get(item, 'link') ?`
-								<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
-									${linkText}
-								</a>
-							` : `
-								<div class="tip link">${linkText}</div>
+						${get(item, 'showLink') ? `
+							${get(item, 'link') ?`
+						  		<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
+									<div class="link-button"></div>
+									<div class="link-text">${linkText}</div>
+						  		</a>
+						  	` : `
+							<div class="tip link" onclick="stopPropagation(event);" ontouchstart="stopPropagation(event);">
+							  <div class="link-button"></div>
+							  <div class="link-text">${linkText}</div>
+							</div>
 							`}
 						` : `
 						`}
 						${get(item, 'block') ? `
 							${get(item, 'block')}
-						` : `
-						`}
-					`)}
+							` : `
+							`}
+						`)}
 				</div>`;
 			});
 
@@ -1054,7 +1057,8 @@
             link: get(data, 'link'),
             linkText: get(data, 'linkText'),
             preview: get(data, 'preview'),
-            block: get(data, 'block'),
+			block: get(data, 'block'),
+			showLink: get(data, 'showLink'),
 		  });
 		};
 		zuck.nextItem = (direction) => {
@@ -1176,7 +1180,7 @@
 	  };
 
 		/* Helpers */
-	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, sponsorText, time, block) => {
+	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, sponsorText, time, block, showLink) => {
 		return {
 		  id,
 		  type,
@@ -1188,7 +1192,8 @@
 		  seen,
 		  time,
 		  sponsorText,
-          block
+		  block,
+		  showLink
 		};
 	  };
 
