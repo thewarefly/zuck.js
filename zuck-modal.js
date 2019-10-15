@@ -483,7 +483,7 @@
 					        <img class="media" src="${get(item, 'src')}" ${get(item, 'type')}>
 						`}
 						${linkText || linkText !== '' ?`
-							<div class="link-button"></div>
+							<div class="link-button" onclick="stopPropagation(event);" ontouchstart="stopPropagation(event);"></div>
 						  	${get(item, 'link') ?`
 								<a class="tip link" href="${get(item, 'link')}" rel="noopener" target="_blank">
 									${linkText}
@@ -571,7 +571,7 @@
 				<div class="slides-pointers">
 					<div>${pointerItems}</div>
 				</div>
-				<div class="bottom-icons">
+				<div class="bottom-icons" onclick="stopPropagation(event);" ontouchstart="stopPropagation(event);">
 					<div class="send"></div>
 					<div class="more"></div>
 			  	</div>`;
@@ -585,6 +585,11 @@
 			});
 
 			storyViewer.appendChild(slides);
+
+			stopPropagation = function (event) {
+				event.stopImmediatePropagation();
+				event.preventDefault();
+			}
 
 			if (className === 'viewing') {
 			  playVideoItem(

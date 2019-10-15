@@ -142,7 +142,7 @@
 #zuck-modal-content .story-viewer .bottom-icons {
 	display: flex;
 	flex-direction: row;
-	z-index: 2;
+	z-index: 200;
 	position: absolute;
 	bottom: 15px;
 	right: 25px;
@@ -177,6 +177,7 @@
 	background-size: cover;
 	height: 30px;
 	width: 30px;
+	z-index: 200;
 }
 
 #zuck-modal-content .story-viewer .tip {
