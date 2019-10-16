@@ -638,7 +638,7 @@
 
 			  if (event.target.nodeName === 'A') {
 				return true;
-			  } else {
+			  } else if(event.cancelable) {
 				event.preventDefault();
 			  }
 
@@ -771,18 +771,7 @@
 				};
 
 				const storyViewerViewing = query('#zuck-modal .viewing');
-
-				if (storyViewerViewing && video) {
-				  if (storyViewerViewing.classList.contains('muted')) {
-					unmuteVideoItem(video, storyViewerViewing);
-				  } else {
-					navigateItem();
-				  }
-				} else {
-				  navigateItem();
-
-				  return false;
-				}
+				navigateItem();
 			  }
 			};
 
