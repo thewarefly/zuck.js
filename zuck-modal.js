@@ -232,6 +232,9 @@
 			onNextItem: function (storyId, nextStoryId, callback) {
 			  callback();
 			},
+			onNavigateBackStory: function () {
+			  callback();
+			},
 			onNavigateItem: function (
 			  storyId,
 			  nextStoryId,
@@ -721,12 +724,15 @@
 				const isValid = (Number(duration) < 300 && Math.abs(delta.x) > 25) || Math.abs(delta.x) > modalContainer.slideWidth / 3;
 				const direction = delta.x < 0;
 
-				const index = direction ? query('#zuck-modal .story-viewer.next') : query('#zuck-modal .story-viewer.previous');
-				const isOutOfBounds = (direction && !index) || (!direction && !index);
-
 				if (!isScrolling) {
-				  if (isValid && !isOutOfBounds) {
+				  if (isValid) {
 					moveStoryItem(direction);
+					
+					if (direction) {
+						modal.next();
+					} else {
+						option('callbacks', 'onNavigateBackStory')();
+					}
 				  } else {
 					translate(modalSlider, position.x, 300);
 				  }
