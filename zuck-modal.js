@@ -235,6 +235,9 @@
 			onNavigateBackStory: function () {
 			  callback();
 			},
+			onNavigateNextStory: function () {
+				callback();
+			},
 			onNavigateItem: function (
 			  storyId,
 			  nextStoryId,
@@ -729,7 +732,7 @@
 					moveStoryItem(direction);
 					
 					if (direction) {
-						modal.next();
+						option('callbacks', 'onNavigateNextStory')();
 					} else {
 						option('callbacks', 'onNavigateBackStory')();
 					}
