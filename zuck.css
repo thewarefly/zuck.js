@@ -62,7 +62,7 @@
 #zuck-modal-content .story-viewer.next{z-index:10;}
 #zuck-modal-content .story-viewer.viewing{z-index:5;}
 #zuck-modal-content .story-viewer.previous{z-index:0;}
-#zuck-modal-content .story-viewer.muted .tip.muted, #zuck-modal-content .story-viewer.loading .head .loading {display: block}
+#zuck-modal-content .story-viewer.loading .head .loading {display: block}
 #zuck-modal-content .story-viewer.loading .head .right .time, #zuck-modal-content .story-viewer.loading .head .right .close {display: none}
 
 #zuck-modal-content .story-viewer .slides-pointers{display:table;table-layout:fixed;border-spacing:6px;border-collapse:separate;position:absolute;width:100vh; top: 0; bottom: 0;top:0;left:calc(50vw - 50vh);right:calc(50vw - 50vh);z-index:100020;}

@@ -247,7 +247,6 @@
 			}
 		  },
 		  language: {
-			unmute: 'Touch to unmute',
 			keyboardTip: 'Press space to see next',
 			visitLink: 'Visit link',
 			time: {
@@ -482,7 +481,7 @@
 				<div data-time="${get(item, 'time')}" data-sponsor-text="${get(item, 'sponsorText')}" data-type="${get(item, 'type')}"${commonAttrs} class="item ${seenClass} ${currentItem === i ? 'active' : ''}">
 					${renderCallback(item, `
 						${get(item, 'type') === 'video' ? `
-							<video class="media" muted webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}"
+							<video class="media" webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}"
 								${get(item, 'type')}>
 							</video>
 						` : `
@@ -517,13 +516,6 @@
       }
 
 			const video = slides.querySelector('video');
-			const addMuted = function (video) {
-			  if (video.muted) {
-				storyViewer.classList.add('muted');
-			  } else {
-				storyViewer.classList.remove('muted');
-			  }
-			};
 
 			if (video) {
 			  video.onwaiting = e => {
@@ -534,27 +526,19 @@
 			  };
 
 			  video.onplay = () => {
-				addMuted(video);
-
 				storyViewer.classList.remove('stopped');
 				storyViewer.classList.remove('paused');
 				storyViewer.classList.remove('loading');
 			  };
 
 			  video.onready = video.onload = video.onplaying = video.oncanplay = () => {
-				addMuted(video);
-
 				storyViewer.classList.remove('loading');
-			  };
-
-			  video.onvolumechange = () => {
-				addMuted(video);
 			  };
 			}
 
 			let storyViewer = d.createElement('div');
 			storyViewer.className =
-				`story-viewer muted ${className} ${!forcePlay ? 'stopped' : ''} ${option('backButton') ? 'with-back-button' : ''}`;
+				`story-viewer ${className} ${!forcePlay ? 'stopped' : ''} ${option('backButton') ? 'with-back-button' : ''}`;
 			storyViewer.setAttribute('data-story-id', storyId);
 
 			const html =
@@ -978,22 +962,6 @@
 		  }
 		};
 
-		let unmuteVideoItem = function (video, storyViewer) {
-		  video.muted = false;
-		  video.volume = 1.0;
-		  video.removeAttribute('muted');
-		  video.play();
-
-		  if (video.paused) {
-			video.muted = true;
-			video.play();
-		  }
-
-		  if (storyViewer) {
-			storyViewer.classList.remove('paused');
-		  }
-		};
-
 		  /* data functions */
 		let saveLocalData = function (key, data) {
 		  try {
@@ -1147,14 +1115,6 @@
 		return {
 		  openStory: (storyId, fromElem) => {
 			modal.show(storyId, fromElem);
-		  },
-		  onVolumeUp: () => {
-			const storyViewerViewing = query('#zuck-modal .viewing');
-			const video = zuck.internalData['currentVideoElement'];
-	
-			if (storyViewerViewing.classList.contains('muted')) {
-				unmuteVideoItem(video, storyViewerViewing);
-			}
 		  },
 		  nextItem: (direction) => {
 			zuck.nextItem(direction);
