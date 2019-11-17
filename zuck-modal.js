@@ -481,7 +481,7 @@
 				<div data-time="${get(item, 'time')}" data-sponsor-text="${get(item, 'sponsorText')}" data-type="${get(item, 'type')}"${commonAttrs} class="item ${seenClass} ${currentItem === i ? 'active' : ''}">
 					${renderCallback(item, `
 						${get(item, 'type') === 'video' ? `
-							<video class="media" webkit-playsinline playsinline preload="auto" src="${get(item, 'src')}"
+							<video class="media" webkit-playsinline playsinline poster="${get(item, 'poster')}" preload="auto" src="${get(item, 'src')}"
 								${get(item, 'type')}>
 							</video>
 						` : `
@@ -1022,7 +1022,7 @@
 			sponsorText: get(data, 'sponsorText'),
             link: get(data, 'link'),
             linkText: get(data, 'linkText'),
-            preview: get(data, 'preview'),
+			poster: get(data, 'poster'),
 			block: get(data, 'block'),
 			showLink: get(data, 'showLink'),
 		  });
@@ -1138,13 +1138,13 @@
 	  };
 
 		/* Helpers */
-	  ZuckModalJS.buildItem = (id, type, length, src, preview, link, linkText, seen, sponsorText, time, block, showLink) => {
+	  ZuckModalJS.buildItem = (id, type, length, src, poster, link, linkText, seen, sponsorText, time, block, showLink) => {
 		return {
 		  id,
 		  type,
 		  length,
 		  src,
-		  preview,
+		  poster,
 		  link,
 		  linkText,
 		  seen,
