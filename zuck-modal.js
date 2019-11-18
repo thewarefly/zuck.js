@@ -343,13 +343,6 @@
 			  viewing: query('#zuck-modal .story-viewer.viewing')
 			};
 
-			if (
-			  (!slideItems['previous'] && !direction) ||
-				(!slideItems['next'] && direction)
-			) {
-			  return false;
-			}
-
 			if (!direction) {
 			  target = 'previous';
 			  useless = 'next';
@@ -777,6 +770,12 @@
 		  return {
 			show: function show (storyId, fromElem) {
 			  const modalContainer = query('#zuck-modal');
+
+			  setVendorVariable(
+				query('#zuck-modal-content').style,
+				'Transform',
+				'scale(0.95)'
+			  );	  
 
 			  const callback = function () {
 				modalContent.innerHTML =
