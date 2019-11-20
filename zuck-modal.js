@@ -1097,6 +1097,8 @@
 			} else if (storyViewer) {
 				if (direction !== 'previous') {
 					modal.next();
+				} else {
+					option('callbacks', 'onNavigateBackStory')();
 				}
 			}
 		};
