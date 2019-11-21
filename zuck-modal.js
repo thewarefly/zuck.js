@@ -721,12 +721,7 @@
 				  }
 				} else {
 					if (isValidY) {
-						if(directionY) {
-							const link = storyViewer.querySelectorAll('div.item.active > a.tip.link');
-						  	if (link.length !== 0) {
-								// open
-						  	}
-						} else {
+						if(!directionY) {
 						  	modal.close();
 						}
 					}
